@@ -1,10 +1,5 @@
-/* ==========================================================================
-   GLOBAL VIEWPORT STANDALONE SEARCH POD HUD CORES
-   ========================================================================== */
-
 .search-target-hud-pod {
     position: fixed;
-    /* Aligns perfectly below the right-hand side of your primary display panel border limits */
     bottom: 35px;
     right: 25px;
     
@@ -12,13 +7,11 @@
     background: linear-gradient(135deg, rgba(0, 10, 32, 0.92) 0%, rgba(0, 4, 16, 0.96) 100%);
     border: 1px solid rgba(0, 207, 255, 0.45);
     padding: 10px 14px;
-    z-index: 998; /* Rides cleanly above background matrices layout systems */
+    z-index: 998;
     overflow: hidden;
     
-    /* Futuristic angular step-cut corner framing profile */
     clip-path: polygon(12px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 12px);
     
-    /* Top-tier arrival deployment animation matrix paths */
     animation: hudPodGlobalArrival 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 

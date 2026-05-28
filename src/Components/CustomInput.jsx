@@ -23,20 +23,16 @@ function CustomInput({ isOpen, onClose, onDataSubmit }) {
 
     return (
         <div className="custom-input-portal-stage">
-            {/* Blurs and dims the entire viewport area evenly */}
             <div className="custom-input-overlay" onClick={onClose}></div>
             
             <div className="custom-input-window">
-                {/* Top-tier futuristic data laser wipe sweep line */}
                 <div className="matrix-scan-laser-line"></div>
                 
-                {/* Window Control Header Bar */}
                 <div className="custom-input-header">
                     <span className="input-header-text">SYSTEM DATA INPUT TERMINAL</span>
                     <button type="button" className="input-close-btn" onClick={onClose}>&times;</button>
                 </div>
 
-                {/* Form Input Deck */}
                 <form onSubmit={handleSubmit} className="custom-input-core">
                     <h2 className="input-main-title">INSERT DATA MATRIX</h2>
 
@@ -52,7 +48,6 @@ function CustomInput({ isOpen, onClose, onDataSubmit }) {
                         />
                     </div>
 
-                    {/* Angular Sci-Fi Action Button */}
                     <button type="submit" className="cyber-insert-action-btn">
                         <span className="insert-action-text">INITIALIZE ARRAY</span>
                     </button>

@@ -17,15 +17,13 @@ function LoadingBar({
     const [activeTab, setActiveTab] = useState("STATUS");
     const { playStatsSound, playHoverTick, playMenuClick, playProcessingSound } = useSoundEngine();
 
-    // 🛠️ HARDWARE TIME SYNCHRONIZATION FOR INTERFACE DATA STREAM
     useEffect(() => {
         if (isLoading) {
-            playProcessingSound(true); // Fire up the data stream crunch instantly
+            playProcessingSound(true);
         } else {
-            playProcessingSound(false); // Snap the sound shut precisely at 100% completion
+            playProcessingSound(false);
         }
 
-        // Emergency cleanup if the component unmounts unexpectedly
         return () => {
             playProcessingSound(false);
         };
@@ -33,23 +31,22 @@ function LoadingBar({
 
     const handleTabSwitch = (targetTab) => {
         if (activeTab === targetTab) return;
-        playStatsSound(); // Triggers analytical diagnostic double-pulse chime
+        playStatsSound();
         setActiveTab(targetTab);
     };
 
     const handleDialSlider = (e) => {
         const computedStep = Math.min(10, Math.floor((e.target.value / 100) * 9) + 1);
         
-        // Only trigger the slider tick if it shifts into a brand-new integer segment block
         if (computedStep !== algoSpeed) {
-            playHoverTick(); // Sleek micro-click feedback per segment
+            playHoverTick();
         }
         
         if (onSpeedChange) onSpeedChange(computedStep);
     };
 
     const handleNavStep = (navActionCallback) => {
-        playMenuClick(); // Snappy tactical click on navigation actions
+        playMenuClick();
         if (navActionCallback) navActionCallback();
     };
 
@@ -59,7 +56,6 @@ function LoadingBar({
     return (
         <div className={`Wrapper ${activeTab === "STATS" && !isLoading ? "expanded-stats-mode" : ""}`}>
             
-            {/* Header Tab Deck */}
             {!isLoading && (
                 <div className="panel-tab-switcher">
                     <button 
@@ -92,7 +88,6 @@ function LoadingBar({
                         </div>
                     </div>
                 ) : activeTab === "STATUS" ? (
-                    /* ORIGINAL STATUS PANEL VIEW */
                     <div className="active-title">
                         <div className="algo-title">
                             {
@@ -106,13 +101,11 @@ function LoadingBar({
                         </div>
                     </div>
                 ) : (
-                    /* FULLY EQUIPPED LEFT SIDEBAR DECK */
                     <div className="stats-inner-layout">
                         <div className="stats-algo-header">
                             {(typeof currentAlgo === "string" ? currentAlgo : currentAlgo.name)?.toUpperCase()}
                         </div>
                         
-                        {/* Live Counter Indicators */}
                         <div className="stats-matrix-rows">
                             <div className="stats-row">
                                 <span className="stats-label">Swaps :</span>
@@ -128,7 +121,6 @@ function LoadingBar({
                             </div>
                         </div>
 
-                        {/* Interactive Speed Control System */}
                         <div className="panel-speed-section">
                             <h4 className="panel-speed-title">SPEED CONTROL (1-10)</h4>
                             
@@ -142,13 +134,11 @@ function LoadingBar({
                                     className="invisible-drag-intercept"
                                 />
 
-                                {/* The Single Tracking Pin Indicator */}
                                 <div 
                                     className="dial-dot-indicator" 
                                     style={{ '--active-index': algoSpeed - 1 }}
                                 />
                                 
-                                {/* The Semi-Circle Arc Grid Structure */}
                                 <div className="dial-blocks-arc">
                                     {Array.from({ length: 10 }).map((_, index) => {
                                         const stepValue = index + 1;
@@ -166,7 +156,6 @@ function LoadingBar({
                             </div>
                         </div>
 
-                        {/* Embedded Action Navigation Controls */}
                         <div className="panel-navigation-row">
                             <button className="panel-nav-btn" onClick={() => handleNavStep(onPrevious)}>
                                 <span>Previous</span>

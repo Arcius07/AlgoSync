@@ -158,7 +158,6 @@ const DisplayPanel = forwardRef(({
         resetPlaybackPointers();
     };
 
-    // ⚡ AGGRESSIVE RESET: Kills intervals instantly
     const resetPlaybackPointers = () => {
         isKilledRef.current = true;
         clearInterval(timerRef.current);
@@ -218,7 +217,6 @@ const DisplayPanel = forwardRef(({
             return;
         }
 
-        // FULL HARD RESET before starting a fresh run
         isKilledRef.current = true;
         clearInterval(timerRef.current);
         setVictoryIndex(null);
@@ -237,7 +235,6 @@ const DisplayPanel = forwardRef(({
         setIsPaused(false);
         currentStepRef.current = 0;
         
-        // Brief buffer for state resets before launching
         setTimeout(() => {
             startPlaybackInterval(steps);
         }, 50);
@@ -268,7 +265,7 @@ const DisplayPanel = forwardRef(({
             const currentStepObj = stepsArray[stepIdx];
             renderTimelineFrame(currentStepObj, stepIdx);
             
-            // EXACT FRAME VICTORY SYNC
+            // VICTORY SYNC
             if (!isSearchingAlgo && stepIdx === stepsArray.length - 1) {
                 if (!isKilledRef.current) {
                     setShowCompleteModal(true);

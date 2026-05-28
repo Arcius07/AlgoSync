@@ -13,17 +13,15 @@ function StatsPanel({
 }) {
     const [speed, setSpeed] = useState(50);
     const [targetInput, setTargetInput] = useState("");
-    const { playHoverTick, playMenuClick } = useSoundEngine(); // <-- Swapped to playHoverTick for the slider
+    const { playHoverTick, playMenuClick } = useSoundEngine();
     
-    const lastTrackedSpeedRef = useRef(50); // Tracks step history to prevent continuous overlapping audio
+    const lastTrackedSpeedRef = useRef(50);
 
     const handleSpeedSlider = (e) => {
         const val = parseInt(e.target.value, 10);
         setSpeed(val);
-        
-        // 🛠️ BUGFIX: Only play exactly 1 micro-tick per single integer unit step changed
         if (val !== lastTrackedSpeedRef.current) {
-            playHoverTick(); // Clean, instant micro-click with zero tail overlap
+            playHoverTick();
             lastTrackedSpeedRef.current = val;
         }
 

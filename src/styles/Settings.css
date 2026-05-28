@@ -1,7 +1,3 @@
-/* ==========================================================================
-   HEXAGON BUTTON CHASSIS DETAILS (TOP RIGHT TERMINATION)
-   ========================================================================== */
-
 .settings-trigger-hex {
     position: fixed;
     top: 24px;
@@ -20,7 +16,6 @@
     transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Base Hexagon Polygon Clipping Definition Formula */
 .hex-interior-chassis {
     position: absolute;
     width: 52px;
@@ -35,7 +30,6 @@
     transition: color 0.25s ease;
 }
 
-/* Outer High Contrast Neon Ring Rim Frame */
 .hex-border-glowing {
     position: absolute;
     width: 56px;
@@ -54,7 +48,6 @@
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* INTERACTIVE ACTION STATES FOR HEX SELECTOR Trigger */
 .settings-trigger-hex:hover {
     transform: scale(1.05);
 }
@@ -72,14 +65,9 @@
     transform: rotate(60deg);
 }
 
-/* Static Active Open configuration freeze stance */
 .settings-trigger-hex.trigger-active .gear-vector-icon {
     transform: rotate(180deg);
 }
-
-/* ==========================================================================
-   BACKDROP MODAL INTERFACE OVERLAY MATRIX
-   ========================================================================== */
 
 .settings-modal-overlay {
     position: fixed;
@@ -87,7 +75,7 @@
     width: 100vw;
     height: 100vh;
     background: rgba(0, 3, 12, 0.65);
-    backdrop-filter: blur(6px); /* Blurs the background visualization elements exactly like the reference snapshot */
+    backdrop-filter: blur(6px); 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,12 +92,10 @@
         inset 0 0 30px rgba(0, 207, 255, 0.08);
     position: relative;
     overflow: hidden;
-    /* Clean octagonal angular terminal trim profile matching primary visualization boxes */
     clip-path: polygon(14px 0%, 100% 0%, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0% 100%, 0% 14px);
     animation: scalePanelIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Control Terminal Header Banner Row */
 .settings-panel-header {
     width: 100%;
     height: 38px;
@@ -144,7 +130,6 @@
     color: #ffffff;
 }
 
-/* Internal Config Content Shell Container */
 .settings-interior-layout {
     width: 100%;
     padding: 24px 36px 32px 36px;
@@ -177,10 +162,6 @@
     align-items: center;
 }
 
-/* ==========================================================================
-   CUSTOM ADVANCED SCI-FI CHECKBOX ELEMENT TRIMS
-   ========================================================================== */
-
 .cyber-checkbox-label {
     display: flex;
     align-items: center;
@@ -199,7 +180,6 @@
     height: 0;
 }
 
-/* Outer check square shell cell */
 .custom-cyber-square {
     width: 20px;
     height: 20px;
@@ -211,7 +191,6 @@
     transition: all 0.2s ease;
 }
 
-/* Glowing center target square node arriving on state checking activation */
 .custom-cyber-square::after {
     content: "";
     position: absolute;
@@ -232,7 +211,6 @@
     transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
-/* INTERACTIVE ACTIVE STATE CHECKBOX OVERRIDES */
 .cyber-checkbox-label:hover .custom-cyber-square {
     border-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 207, 255, 0.4);
@@ -253,10 +231,6 @@
     color: #00cfff;
     text-shadow: 0 0 6px rgba(0, 207, 255, 0.5);
 }
-
-/* ==========================================================================
-   VOLUME RANGE SLIDER CONFIGURATIONS
-   ========================================================================== */
 
 .volume-slider-row {
     flex-direction: column;
@@ -301,7 +275,6 @@
     cursor: pointer;
 }
 
-/* Linear filled volume track rule mapping gradient widths via React property anchors */
 .settings-volume-slider::before {
     content: "";
     position: absolute;
@@ -331,10 +304,6 @@
 .settings-volume-slider::-webkit-slider-thumb:hover {
     transform: scale(1.2);
 }
-
-/* ==========================================================================
-   MODAL CONFIRM ACTION SAVE BUTTON
-   ========================================================================== */
 
 .settings-save-btn {
     width: 200px;
@@ -385,16 +354,9 @@
     transform: scale(0.98);
 }
 
-/* ==========================================================================
-   MODAL KEYFRAME INTERPOLATION TIMELINES
-   ========================================================================== */
-
 @keyframes fadeOverlayIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes scalePanelIn { from { opacity: 0; transform: scale(0.94) translateY(15px); } to { opacity: 1; transform: scale(1) translateY(0); } }
 
-/* ==========================================================================
-   EXPERIMENTAL AUDIO WARNING MODAL
-   ========================================================================== */
 .audio-warning-overlay {
     position: absolute;
     inset: 0;

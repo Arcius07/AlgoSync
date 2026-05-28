@@ -1,28 +1,19 @@
-/* ==========================================================================
-   PORTAL CONTAINER FIXED ALIGNMENT SCREEN STAGE
-   ========================================================================== */
-
 .custom-input-portal-stage {
-    /* Fixed breakout bypass layout rule */
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
-    /* Forces it to span the entire screen, ignoring parent boundaries */
     width: 100vw;
     height: 100vh;
-    
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999999; /* Top-tier layer hierarchy depth priority */
+    z-index: 999999;
 }
 
 .custom-input-overlay {
     position: absolute;
     inset: 0;
-    /* Spans exactly the full width/height window space safely */
     width: 100%;
     height: 100%;
     background: rgba(0, 3, 10, 0.7);
@@ -32,10 +23,6 @@
     z-index: 1;
 }
 
-/* ==========================================================================
-   THE TERMINAL PANEL FRAME & MATRICES TRIMS
-   ========================================================================== */
-
 .custom-input-window {
     position: relative;
     width: 480px;
@@ -43,24 +30,14 @@
     border: 1px solid #00cfff;
     z-index: 2;
     overflow: hidden;
-    
-    /* Authentic octagonal angular cyberpunk edge trim profile */
     clip-path: polygon(16px 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 14px) 100%, 0% 100%, 0% 16px);
-    
-    /* Top-Tier Holographic Boot-Up Sequence Animations */
     opacity: 0;
     box-shadow: 0 0 0px rgba(0, 207, 255, 0);
-    
-    /* Combines the scale/translate offsets and the holographic reveal cleanly */
     animation: 
         cyberHoloReveal 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards,
         cyberGlitchFlicker 0.35s ease-out 0.1s 1,
         cyberPulseGlow 3s ease-in-out infinite alternate 0.5s;
 }
-
-/* ==========================================================================
-   TOP-TIER SYSTEM WIPE WING SECTOR (THE SWEEPING LASER ELEMENT)
-   ========================================================================== */
 
 .matrix-scan-laser-line {
     position: absolute;
@@ -77,10 +54,6 @@
     opacity: 0;
     animation: laserScanSweep 0.65s cubic-bezier(0.4, 0, 0.2, 1) 0.15s 1 forwards;
 }
-
-/* ==========================================================================
-   INTERNAL CONTENT DESIGN CONFIGS
-   ========================================================================== */
 
 .custom-input-header {
     width: 100%;
@@ -137,10 +110,6 @@
     text-align: center;
 }
 
-/* ==========================================================================
-   INPUT BOX WITH PROMPT SYSTEM HOOKS
-   ========================================================================== */
-
 .terminal-field-wrapper {
     width: 100%;
     height: 52px;
@@ -183,10 +152,6 @@
 .cyber-terminal-input::placeholder {
     color: rgba(0, 207, 255, 0.2);
 }
-
-/* ==========================================================================
-   SUBMIT LAYER ACTION TRIGGERS
-   ========================================================================== */
 
 .cyber-insert-action-btn {
     width: 210px;
@@ -239,15 +204,10 @@
     transform: translateY(1px) scale(0.98);
 }
 
-/* ==========================================================================
-   TOP-TIER SYSTEM INTERPOLATION ANIMATIONS
-   ========================================================================== */
-
 @keyframes cyberFadeOverlay {
     to { opacity: 1; }
 }
 
-/* Kinetic expansion reveal scale curve: handles scale entry cleanly from center position */
 @keyframes cyberHoloReveal {
     from {
         opacity: 0;
@@ -259,7 +219,6 @@
     }
 }
 
-/* Holographic mainframe power boot flicker */
 @keyframes cyberGlitchFlicker {
     0% { opacity: 0; filter: brightness(2); }
     15% { opacity: 0.8; filter: brightness(1.5); }
@@ -270,7 +229,6 @@
     100% { filter: brightness(1); }
 }
 
-/* Constant standing radar glow ring breathing loop */
 @keyframes cyberPulseGlow {
     0% {
         box-shadow: 0 0 20px rgba(0, 207, 255, 0.2), inset 0 0 15px rgba(0, 207, 255, 0.04);
@@ -282,7 +240,6 @@
     }
 }
 
-/* Sweeps the matrix neon bar tracker down across the card boundaries */
 @keyframes laserScanSweep {
     0% {
         top: 0%;

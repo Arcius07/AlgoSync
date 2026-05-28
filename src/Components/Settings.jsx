@@ -6,28 +6,21 @@ function Settings({ popupDuration, setPopupDuration, isGlitchActive, setIsGlitch
     const { setEngineMute, setEngineVolume, playMenuClick, initAudioEngine } = useSoundEngine(); 
     
     const [isOpen, setIsOpen] = useState(false);
-    
-    // Default to false to match the engine's new default state
     const [soundActive, setSoundActive] = useState(false); 
     const [volume, setVolume] = useState(70);
-    
-    // State for the experimental warning modal
     const [showAudioWarning, setShowAudioWarning] = useState(false);
 
     const handleToggleModal = () => {
         playMenuClick(); 
         setIsOpen(!isOpen);
-        // If they close the settings, make sure the warning goes away too
         if (isOpen) setShowAudioWarning(false); 
     };
 
     const handleAudioToggle = (e) => {
         const wantsToEnable = e.target.checked;
         if (wantsToEnable) {
-            // Intercept the toggle and show the warning
             setShowAudioWarning(true);
         } else {
-            // Allow them to turn it off instantly
             setSoundActive(false);
             setEngineMute(true);
         }
@@ -37,12 +30,11 @@ function Settings({ popupDuration, setPopupDuration, isGlitchActive, setIsGlitch
         setShowAudioWarning(false);
         setSoundActive(true);
         setEngineMute(false);
-        initAudioEngine(); // Boot up the context explicitly
+        initAudioEngine(); 
     };
 
     const cancelEnableAudio = () => {
         setShowAudioWarning(false);
-        // Checkbox remains false
     };
 
     return (
@@ -60,7 +52,6 @@ function Settings({ popupDuration, setPopupDuration, isGlitchActive, setIsGlitch
                 <div className="settings-modal-overlay" onClick={handleToggleModal}>
                     <div className="settings-window-panel" onClick={(e) => e.stopPropagation()}>
                         
-                        {/* THE WARNING INTERCEPTOR */}
                         {showAudioWarning && (
                             <div className="audio-warning-overlay">
                                 <div className="audio-warning-panel">

@@ -1,6 +1,6 @@
 import "../styles/Navbar.css";
 import { useState } from "react";
-import { useSoundEngine } from "../sounds/AudioContent.jsx"; // <-- Embedded audio chassis hook
+import { useSoundEngine } from "../sounds/AudioContent.jsx";
 
 function Navbar({
     setIsLoading,
@@ -9,19 +9,18 @@ function Navbar({
     selectedAlgo
 }) {
     const [openMenu, setOpenMenu] = useState("");
-    const { playHoverTick, playMenuClick } = useSoundEngine(); // <-- Destructured custom sci-fi audio assets
+    const { playHoverTick, playMenuClick } = useSoundEngine();
 
     const handleMenuHeaderClick = (menuType) => {
-        playMenuClick(); // Tactile click on dropdown header toggle
+        playMenuClick();
         setOpenMenu(openMenu === menuType ? "" : menuType);
     };
 
     const handleAlgoClick = (algoId, algoName) => {
-        playMenuClick(); // Tactile command pop click (Button 1) on index selection
+        playMenuClick();
         setLoadingAlgo(algoName);
         setIsLoading(true);
 
-        // Simulated processing handshake lag to drive the cinematic preloader bar sequence
         setTimeout(() => {
             setSelectedAlgo(algoId);
             setIsLoading(false);
@@ -35,9 +34,6 @@ function Navbar({
                 <span className="version">v1.0</span>
             </div>
 
-            {/* ==========================================================================
-               1. SEARCHING ALGORITHMS DROPDOWN CHASSIS
-               ========================================================================== */}
             <div className="menu-selection">
                 <div 
                     className={`menu-header clickable ${openMenu === "search" ? "active" : ""}`}
@@ -57,7 +53,7 @@ function Navbar({
                             <div 
                                 key={algo}
                                 className={`menu-item ${selectedAlgo === algo ? "active" : ""}`}
-                                onMouseEnter={playHoverTick} // <-- Triggers premium minimal micro-click on hover
+                                onMouseEnter={playHoverTick}
                                 onClick={() => handleAlgoClick(algo, algo)}
                             >
                                 {algo}
@@ -67,9 +63,6 @@ function Navbar({
                 )}
             </div>
 
-            {/* ==========================================================================
-               2. SORTING ALGORITHMS DROPDOWN CHASSIS
-               ========================================================================== */}
             <div className="menu-selection">
                 <div 
                     className={`menu-header clickable ${openMenu === "sort" ? "active" : ""}`}
@@ -93,7 +86,7 @@ function Navbar({
                             <div 
                                 key={algo}
                                 className={`menu-item ${selectedAlgo === algo ? "active" : ""}`}
-                                onMouseEnter={playHoverTick} // <-- Triggers premium minimal micro-click on hover
+                                onMouseEnter={playHoverTick}
                                 onClick={() => handleAlgoClick(algo, algo)}
                             >
                                 {algo}

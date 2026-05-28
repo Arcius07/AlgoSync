@@ -2,7 +2,6 @@ import React from "react";
 import "../styles/SearchBar.css";
 
 function SearchHUD({ selectedAlgo, isPlaying, value, onChange }) {
-    // Dynamically checks if a searching configuration is currently active on the board
     const isSearchingAlgo = selectedAlgo && selectedAlgo.toLowerCase().includes("search");
 
     if (!isSearchingAlgo) return null;

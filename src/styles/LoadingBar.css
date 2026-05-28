@@ -1,7 +1,3 @@
-/* ==========================================================================
-   MAIN PANEL HOUSING AND MAIN FRAME
-   ========================================================================== */
-
 .Wrapper {
     position: fixed;
     bottom: 35px;
@@ -12,7 +8,6 @@
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Expands vertically upward when toggled into statistics dashboard mode */
 .Wrapper.expanded-stats-mode .Loading-panel {
     height: 520px;
     background: rgba(0, 6, 22, 0.94);
@@ -22,9 +17,6 @@
         inset 0 0 30px rgba(0, 255, 102, 0.05);
 }
 
-/* ==========================================================================
-   INTERACTIVE PANEL SUB-TAB SWITCHER
-   ========================================================================== */
 
 .panel-tab-switcher {
     display: flex;
@@ -77,9 +69,6 @@
     box-shadow: 0 0 10px rgba(0,207,255,0.3), inset 0 0 18px rgba(0,207,255,0.08);
 }
 
-/* ==========================================================================
-   ACTIVE VIEW STATUS MODES (ORIGINAL MONITOR ENGINE)
-   ========================================================================== */
 
 .active-title { 
     position: relative; 
@@ -112,7 +101,6 @@
     background: rgba(0, 217, 255, 0.18); 
 }
 
-/* Real-Time Scrolling ECG Waveform Track Overlay */
 .active-title::after { 
     content: ""; 
     position: absolute; 
@@ -126,10 +114,6 @@
     filter: drop-shadow(0 0 4px rgba(0, 255, 102, 0.85)); 
     animation: ecgScroll 2.5s linear infinite; 
 }
-
-/* ==========================================================================
-   EXPANDED ANALYTICS MODULE CORES
-   ========================================================================== */
 
 .stats-inner-layout {
     width: 100%;
@@ -180,9 +164,6 @@
     text-shadow: 0 0 10px rgba(0, 207, 255, 0.8); 
 }
 
-/* ==========================================================================
-   THE PERFECT SEMI-CIRCULAR DRAG DIAL HOUSING
-   ========================================================================== */
 
 .panel-speed-section {
     width: 100%;
@@ -205,12 +186,11 @@
 
 .radial-dial-container {
     position: relative;
-    width: 260px; /* Constrained bounding box for a perfect arched circle structure */
+    width: 260px; 
     height: 120px; 
     margin: 0 auto;
 }
 
-/* Invisible input overlay that handles seamless drag-and-swipe gestures */
 .invisible-drag-intercept {
     position: absolute;
     inset: 0;
@@ -221,7 +201,6 @@
     z-index: 10;
 }
 
-/* Origin Anchor Stage: Positioned at the bottom center of the semi-circle layout */
 .dial-blocks-arc {
     position: absolute;
     bottom: 0;
@@ -231,21 +210,18 @@
     pointer-events: none;
 }
 
-/* Individual Blocks: Mathematically projected into a perfect semi-circle arc */
 .dial-segment-block {
     position: absolute;
     bottom: 0;
-    left: -11px; /* Centers the 22px wide element precisely over the origin anchor */
+    left: -11px;
     width: 22px;
     height: 30px;
     border-radius: 4px;
     border: 2px solid #230044;
     background: transparent;
     
-    /* Origin point is at the bottom center of the semi-circle arc (90px downwards) */
     transform-origin: 50% 90px;
     
-    /* Evenly spaces out 10 steps along a 140-degree semi-circle range (-70deg to +70deg) */
     transform: rotate(calc(-70deg + (var(--block-index) * 15.5deg))) translateY(-90px);
     
     backface-visibility: hidden;
@@ -256,7 +232,7 @@
         box-shadow 0.15s ease;
 }
 
-/* SYNTHWAVE MULTI-BLOCK GRADIENT FILL EFFECT */
+
 .dial-segment-block.segment-lit {
     background: linear-gradient(180deg, 
         color-mix(in srgb, #00ffff, #ff00ff calc(var(--block-index) * 11%)) 0%, 
@@ -268,33 +244,25 @@
         inset 0 0 4px rgba(255, 255, 255, 0.3);
 }
 
-/* ==========================================================================
-   LOCK-TRACKING ACCENT PIN INDICATOR
-   ========================================================================== */
 
 .dial-dot-indicator {
     position: absolute;
     bottom: 0;
     left: 50%;
-    /* Same dimensions as the segments for perfect radial path alignment */
     width: 0;
     height: 0;
     pointer-events: none;
     z-index: 5;
     
-    /* Calculates rotation dynamically to match the current segment index exactly,
-       positioning the floating indicator dot precisely on top of the last active bar.
-    */
     transform: rotate(calc(-70deg + (var(--active-index) * 15.5deg)));
     transform-origin: 50% 0px; 
     transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.15);
 }
 
-/* The neon cyan glowing indicator pin dot head element */
 .dial-dot-indicator::after {
     content: "";
     position: absolute;
-    top: -72px; /* Sits cleanly above the 90px arc radius limit + block height margins */
+    top: -72px;
     left: -5px;
     width: 10px;
     height: 10px;
@@ -305,10 +273,6 @@
         0 0 10px #00ffff, 
         0 0 20px rgba(0, 255, 255, 0.8);
 }
-
-/* ==========================================================================
-   NAVIGATION SIMULATION CONTROLLERS
-   ========================================================================== */
 
 .panel-navigation-row { 
     width: 100%; 
@@ -345,10 +309,6 @@
 .panel-nav-btn:active { 
     transform: scale(0.97); 
 }
-
-/* ==========================================================================
-   PRE-LOAD BAR LAYOUT GRAPHICS
-   ========================================================================== */
 
 .loading-container { width: 100%; display: flex; flex-direction: column; gap: 12px; }
 .loading-text { color: #7df9ff; font-size: 1.4rem; letter-spacing: 2px; text-transform: uppercase; }

@@ -1,14 +1,10 @@
-/* ==========================================================================
-   SIDEBAR CORE CHASSIS HOUSING
-   ========================================================================== */
-
 .stats-sidebar-wrapper {
     position: absolute;
     top: 50%;
-    right: 2vw; /* Anchored neatly to the right side of the main grid */
+    right: 2vw;
     transform: translateY(-50%);
     width: 280px;
-    height: 78vh; /* Matches display panel block line exactly */
+    height: 78vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -16,10 +12,6 @@
     user-select: none;
     z-index: 10;
 }
-
-/* ==========================================================================
-   UPPER TERMINAL METRICS PANEL
-   ========================================================================== */
 
 .stats-main-panel {
     width: 100%;
@@ -44,7 +36,6 @@
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
 
-/* Data Metric Fields Rows */
 .metrics-container {
     display: flex;
     flex-direction: column;
@@ -74,10 +65,6 @@
     font-weight: bold;
 }
 
-/* ==========================================================================
-   NEON SPECTRUM SLIDER BAR
-   ========================================================================== */
-
 .speed-control-section {
     width: 100%;
     margin-bottom: 28px;
@@ -99,28 +86,25 @@
     align-items: center;
 }
 
-/* Reset baseline system controls for the input range channel */
 .cyber-range-slider {
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
     height: 14px;
     border-radius: 7px;
-    background: #101a35; /* Empty background track */
+    background: #101a35;
     outline: none;
     position: relative;
     overflow: visible;
     cursor: pointer;
 }
 
-/* Core Synthwave Gradient filling logic via input value tracking */
 .cyber-range-slider::before {
     content: "";
     position: absolute;
     left: 0;
     top: 0;
     height: 100%;
-    /* Dynamically filled using the css custom variable passed from React state hooks */
     width: var(--slider-progress, 50%);
     background: linear-gradient(90deg, #00d9ff 0%, #7000ff 70%, #ff00ff 100%);
     border-radius: 7px;
@@ -128,7 +112,6 @@
     pointer-events: none;
 }
 
-/* Customizable range thumb head element specs */
 .cyber-range-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -148,10 +131,6 @@
 .cyber-range-slider::-webkit-slider-thumb:hover {
     transform: scale(1.15);
 }
-
-/* ==========================================================================
-   CONTEXT STEP BUTTON PAIR CONTROL LAYOUT
-   ========================================================================== */
 
 .step-navigation-row {
     width: 100%;
@@ -192,10 +171,6 @@
 .nav-step-btn:active {
     transform: scale(0.97);
 }
-
-/* ==========================================================================
-   LOWER TARGET SEARCH INPUT DECK TERMINAL
-   ========================================================================== */
 
 .target-input-section {
     width: 100%;
@@ -239,7 +214,6 @@
     letter-spacing: 1px;
 }
 
-/* Custom placeholder visibility configs override matrix */
 .terminal-text-field::placeholder {
     color: rgba(0, 207, 255, 0.3);
     text-transform: none;

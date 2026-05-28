@@ -37,15 +37,10 @@
         0 0 6px rgba(255,255,255,0.4);
 }
 
-/* ==========================================================================
-   MENU LAYOUT & TRANSITION COUPLING
-   ========================================================================== */
-
 .menu-selection {
     margin-top: 26px;
     opacity: 1;
     transform: translateY(0);
-    /* Handles smooth fade-out and slide-up transitions when state changes */
     transition: 
         opacity 0.35s cubic-bezier(0.25, 1, 0.5, 1),
         transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
@@ -114,15 +109,8 @@
     transform: translateX(4px);
 }
 
-/* ==========================================================================
-   DYNAMIC COMPONENT INTERLOCK
-   ========================================================================== */
-
-/* When the stats tab is active, the global .Wrapper acquires the .expanded-stats-mode class.
-   This rule detects it anywhere on the page, smoothly hiding the algorithm list underneath the logo.
-*/
 body:has(.expanded-stats-mode) .menu-selection {
     opacity: 0;
     pointer-events: none;
-    transform: translateY(-15px); /* Sweeps up slightly behind the expanding stats window */
+    transform: translateY(-15px);
 }
