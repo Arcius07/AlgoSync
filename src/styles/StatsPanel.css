@@ -218,3 +218,54 @@
     color: rgba(0, 207, 255, 0.3);
     text-transform: none;
 }
+
+/* --- MOBILE RESPONSIVENESS--- */
+@media (max-width: 768px) {
+    .stats-sidebar-wrapper {
+        position: relative;
+        top: 0;
+        right: 0;
+        transform: none;
+        width: 92%;
+        height: auto;
+        margin: 16px auto 32px auto;
+        gap: 20px;
+    }
+
+    .stats-main-panel {
+        padding: 20px 16px;
+    }
+
+    .panel-header-title {
+        font-size: 1.15rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .metrics-container {
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .metric-row {
+        font-size: 1rem;
+        justify-content: space-between; 
+    }
+
+    .speed-header-title {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .step-navigation-row {
+        gap: 10px;
+    }
+
+    .nav-step-btn {
+        height: 44px;
+    }
+
+    .target-input-section {
+        margin-top: 8px;
+    }
+}

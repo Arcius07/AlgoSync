@@ -62,7 +62,6 @@
     font-family: 'Orbitron', sans-serif;
 }
 
-
 .chart-area {
     width: 100%;
     height: 75%;
@@ -310,7 +309,6 @@
     animation: emeraldSonicBlast 0.65s cubic-bezier(0.1, 0.8, 0.1, 1) 0.1s 1 forwards;
 }
 
-
 .display-idle, .display-loading {
     font-family: 'Orbitron', sans-serif;
     font-size: 2.2rem;
@@ -319,7 +317,6 @@
 }
 .display-idle { color: rgba(0, 207, 255, 0.4); }
 .display-loading { color: #00cfff; animation: pulseGlow 1.2s infinite ease-in-out; }
-
 
 .button-row {
     display: flex;
@@ -565,4 +562,78 @@
     50% { transform: skewX(-3deg) scaleY(1.03); text-shadow: 2px -1px 0 #ff0055, -2px 1px 0 #00ffff, 0 0 10px rgba(0, 207, 255, 0.85); }
     52% { transform: skewX(2deg); text-shadow: -2px 1px 0 #ff0055, 2px -1px 0 #00ffff, 0 0 10px rgba(0, 207, 255, 0.85); }
     55% { transform: skewX(0deg); }
+}
+
+/* --- MOBILE RESPONSIVENESS--- */
+@media (max-width: 768px) {
+    .display-panel {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 95%;
+        height: 60vh;
+        margin: 16px auto;
+        padding: 16px;
+    }
+
+    .display-inner {
+        top: 0;
+    }
+
+    .visualization-title {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+
+    .chart-area {
+        padding: 10px;
+        gap: 4px;
+        height: 60%;
+    }
+
+    .bar-number {
+        font-size: 9px;
+        bottom: 4px;
+    }
+
+    .button-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .control-btn {
+        width: 100%;
+        height: 52px;
+        font-size: 18px;
+    }
+
+    .display-idle, .display-loading {
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+
+    .sorting-complete-hud-text {
+        font-size: 1.6rem !important;
+        text-align: center;
+    }
+
+    .hud-overlay-circuit-frame {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .hud-overlay-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .hud-overlay-ack-btn {
+        width: 180px;
+        height: 48px;
+        font-size: 1rem;
+    }
 }

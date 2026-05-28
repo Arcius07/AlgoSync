@@ -114,3 +114,35 @@ body:has(.expanded-stats-mode) .menu-selection {
     pointer-events: none;
     transform: translateY(-15px);
 }
+
+/* --- MOBILE RESPONSIVENESS ADDED HERE --- */
+@media (max-width: 768px) {
+    .navbar {
+        width: 100%;
+        height: auto;
+        padding-left: 16px;
+        padding-right: 80px;
+        padding-top: 16px;
+        padding-bottom: 10px;
+    }
+    
+    .logo {
+        font-size: 42px;
+    }
+    
+    .version {
+        font-size: 14px;
+        top: -10px;
+    }
+
+    .menu-selection {
+        margin-top: 16px;
+    }
+
+    .menu-items {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding-left: 0;
+        gap: 12px;
+    }
+}

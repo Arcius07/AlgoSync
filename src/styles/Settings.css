@@ -431,3 +431,62 @@
     color: #ffffff;
     box-shadow: 0 0 15px #ff0055;
 }
+
+/* --- MOBILE RESPONSIVENESS--- */
+@media (max-width: 768px) {
+    .settings-trigger-hex {
+        top: 16px;
+        right: 16px;
+        transform: scale(0.85);
+        transform-origin: top right;
+    }
+
+    .settings-trigger-hex:hover {
+        transform: scale(0.9);
+    }
+
+    .settings-window-panel {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .settings-interior-layout {
+        padding: 20px 24px;
+    }
+
+    .settings-main-heading {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+
+    .cyber-checkbox-label {
+        font-size: 0.95rem;
+    }
+
+    .volume-label-group {
+        font-size: 0.8rem;
+    }
+    
+    .audio-warning-panel {
+        width: 95%;
+        padding: 16px;
+    }
+
+    .warning-title {
+        font-size: 1.2rem;
+    }
+
+    .warning-text {
+        font-size: 0.8rem;
+        margin-bottom: 16px;
+    }
+
+    .warning-btn-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .warning-btn {
+        width: 100%;
+    }
+}

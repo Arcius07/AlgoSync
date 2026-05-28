@@ -85,3 +85,21 @@
         transform: translateY(0) scale(1);
     }
 }
+
+/* --- MOBILE RESPONSIVENESS--- */
+@media (max-width: 768px) {
+    .search-target-hud-pod {
+        bottom: 175px;
+        right: 16px;
+        width: 165px; 
+        padding: 12px 16px;
+    }
+
+    .hud-pod-input {
+        font-size: 1.1rem;
+    }
+    
+    .hud-pod-label {
+        font-size: 0.65rem;
+    }
+}
