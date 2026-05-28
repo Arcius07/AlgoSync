@@ -1,0 +1,301 @@
+/* ==========================================================================
+   PORTAL CONTAINER FIXED ALIGNMENT SCREEN STAGE
+   ========================================================================== */
+
+.custom-input-portal-stage {
+    /* Fixed breakout bypass layout rule */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Forces it to span the entire screen, ignoring parent boundaries */
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999; /* Top-tier layer hierarchy depth priority */
+}
+
+.custom-input-overlay {
+    position: absolute;
+    inset: 0;
+    /* Spans exactly the full width/height window space safely */
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 3, 10, 0.7);
+    backdrop-filter: blur(12px) saturate(1.2);
+    opacity: 0;
+    animation: cyberFadeOverlay 0.25s linear forwards;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   THE TERMINAL PANEL FRAME & MATRICES TRIMS
+   ========================================================================== */
+
+.custom-input-window {
+    position: relative;
+    width: 480px;
+    background: radial-gradient(circle at 50% 30%, #00123a 0%, #000414 100%);
+    border: 1px solid #00cfff;
+    z-index: 2;
+    overflow: hidden;
+    
+    /* Authentic octagonal angular cyberpunk edge trim profile */
+    clip-path: polygon(16px 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 14px) 100%, 0% 100%, 0% 16px);
+    
+    /* Top-Tier Holographic Boot-Up Sequence Animations */
+    opacity: 0;
+    box-shadow: 0 0 0px rgba(0, 207, 255, 0);
+    
+    /* Combines the scale/translate offsets and the holographic reveal cleanly */
+    animation: 
+        cyberHoloReveal 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards,
+        cyberGlitchFlicker 0.35s ease-out 0.1s 1,
+        cyberPulseGlow 3s ease-in-out infinite alternate 0.5s;
+}
+
+/* ==========================================================================
+   TOP-TIER SYSTEM WIPE WING SECTOR (THE SWEEPING LASER ELEMENT)
+   ========================================================================== */
+
+.matrix-scan-laser-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 10%, #00ffff 50%, transparent 90%);
+    box-shadow: 
+        0 0 10px #00cfff,
+        0 0 20px #00cfff;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0;
+    animation: laserScanSweep 0.65s cubic-bezier(0.4, 0, 0.2, 1) 0.15s 1 forwards;
+}
+
+/* ==========================================================================
+   INTERNAL CONTENT DESIGN CONFIGS
+   ========================================================================== */
+
+.custom-input-header {
+    width: 100%;
+    height: 38px;
+    background: rgba(0, 207, 255, 0.12);
+    border-bottom: 1px solid rgba(0, 207, 255, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 18px;
+}
+
+.input-header-text {
+    color: #00cfff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    text-shadow: 0 0 8px rgba(0, 207, 255, 0.7);
+}
+
+.input-close-btn {
+    background: transparent;
+    border: none;
+    color: #00cfff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    transition: all 0.2s ease;
+}
+
+.input-close-btn:hover {
+    color: #ff0077;
+    text-shadow: 0 0 8px #ff0077;
+}
+
+.custom-input-core {
+    width: 100%;
+    padding: 32px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-main-title {
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    margin: 0 0 32px 0;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+/* ==========================================================================
+   INPUT BOX WITH PROMPT SYSTEM HOOKS
+   ========================================================================== */
+
+.terminal-field-wrapper {
+    width: 100%;
+    height: 52px;
+    background: rgba(0, 4, 18, 0.85);
+    border: 1px solid rgba(0, 207, 255, 0.4);
+    border-radius: 6px;
+    padding: 0 16px;
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.25s ease;
+}
+
+.terminal-field-wrapper:focus-within {
+    border-color: #00ffff;
+    box-shadow: 
+        0 0 14px rgba(0, 255, 255, 0.3),
+        inset 0 0 10px rgba(0, 255, 255, 0.05);
+}
+
+.input-terminal-prompt {
+    color: #00ffff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
+
+.cyber-terminal-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.05rem;
+    letter-spacing: 2px;
+}
+
+.cyber-terminal-input::placeholder {
+    color: rgba(0, 207, 255, 0.2);
+}
+
+/* ==========================================================================
+   SUBMIT LAYER ACTION TRIGGERS
+   ========================================================================== */
+
+.cyber-insert-action-btn {
+    width: 210px;
+    height: 44px;
+    background: linear-gradient(180deg, rgba(0, 30, 75, 0.8) 0%, rgba(0, 10, 35, 0.95) 100%);
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
+}
+
+.cyber-insert-action-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1.5px;
+    background: linear-gradient(to right, #00cfff, #0044aa, #00cfff);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
+}
+
+.insert-action-text {
+    color: #00cfff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    text-shadow: 0 0 6px rgba(0, 207, 255, 0.6);
+}
+
+.cyber-insert-action-btn:hover {
+    background: linear-gradient(180deg, rgba(0, 45, 100, 0.85) 0%, rgba(0, 14, 45, 0.95) 100%);
+    box-shadow: 0 0 20px rgba(0, 207, 255, 0.4);
+    transform: translateY(-1px);
+}
+
+.cyber-insert-action-btn:hover .insert-action-text {
+    color: #ffffff;
+    text-shadow: 0 0 10px #00cfff, 0 0 20px #00cfff;
+}
+
+.cyber-insert-action-btn:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+/* ==========================================================================
+   TOP-TIER SYSTEM INTERPOLATION ANIMATIONS
+   ========================================================================== */
+
+@keyframes cyberFadeOverlay {
+    to { opacity: 1; }
+}
+
+/* Kinetic expansion reveal scale curve: handles scale entry cleanly from center position */
+@keyframes cyberHoloReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.85) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Holographic mainframe power boot flicker */
+@keyframes cyberGlitchFlicker {
+    0% { opacity: 0; filter: brightness(2); }
+    15% { opacity: 0.8; filter: brightness(1.5); }
+    30% { opacity: 0.2; filter: brightness(1); }
+    45% { opacity: 0.9; filter: brightness(1.8); }
+    60% { opacity: 0.4; }
+    80% { opacity: 1; filter: brightness(1.2); }
+    100% { filter: brightness(1); }
+}
+
+/* Constant standing radar glow ring breathing loop */
+@keyframes cyberPulseGlow {
+    0% {
+        box-shadow: 0 0 20px rgba(0, 207, 255, 0.2), inset 0 0 15px rgba(0, 207, 255, 0.04);
+        border-color: rgba(0, 207, 255, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 40px rgba(0, 207, 255, 0.45), inset 0 0 25px rgba(0, 207, 255, 0.12);
+        border-color: rgba(0, 255, 255, 1);
+    }
+}
+
+/* Sweeps the matrix neon bar tracker down across the card boundaries */
+@keyframes laserScanSweep {
+    0% {
+        top: 0%;
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}

@@ -1,0 +1,471 @@
+/* ==========================================================================
+   HEXAGON BUTTON CHASSIS DETAILS (TOP RIGHT TERMINATION)
+   ========================================================================== */
+
+.settings-trigger-hex {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    width: 56px;
+    height: 64px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    padding: 0;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Hexagon Polygon Clipping Definition Formula */
+.hex-interior-chassis {
+    position: absolute;
+    width: 52px;
+    height: 60px;
+    background: linear-gradient(180deg, rgba(0, 15, 45, 0.9) 0%, rgba(0, 5, 20, 0.95) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00cfff;
+    z-index: 2;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transition: color 0.25s ease;
+}
+
+/* Outer High Contrast Neon Ring Rim Frame */
+.hex-border-glowing {
+    position: absolute;
+    width: 56px;
+    height: 64px;
+    background: #00cfff;
+    z-index: 1;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    filter: drop-shadow(0 0 8px rgba(0, 207, 255, 0.6));
+    transition: background 0.25s ease, filter 0.25s ease;
+}
+
+.gear-vector-icon {
+    width: 26px;
+    height: 26px;
+    transform: rotate(0deg);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* INTERACTIVE ACTION STATES FOR HEX SELECTOR Trigger */
+.settings-trigger-hex:hover {
+    transform: scale(1.05);
+}
+
+.settings-trigger-hex:hover .hex-interior-chassis {
+    color: #ffffff;
+}
+
+.settings-trigger-hex:hover .hex-border-glowing {
+    background: #ffffff;
+    filter: drop-shadow(0 0 12px #00cfff);
+}
+
+.settings-trigger-hex:hover .gear-vector-icon {
+    transform: rotate(60deg);
+}
+
+/* Static Active Open configuration freeze stance */
+.settings-trigger-hex.trigger-active .gear-vector-icon {
+    transform: rotate(180deg);
+}
+
+/* ==========================================================================
+   BACKDROP MODAL INTERFACE OVERLAY MATRIX
+   ========================================================================== */
+
+.settings-modal-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 3, 12, 0.65);
+    backdrop-filter: blur(6px); /* Blurs the background visualization elements exactly like the reference snapshot */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOverlayIn 0.25s ease-out forwards;
+}
+
+.settings-window-panel {
+    width: 480px;
+    background: radial-gradient(circle at center, #000d2b 0%, #000412 100%);
+    border: 2px solid #00cfff;
+    box-shadow: 
+        0 0 35px rgba(0, 207, 255, 0.3),
+        inset 0 0 30px rgba(0, 207, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+    /* Clean octagonal angular terminal trim profile matching primary visualization boxes */
+    clip-path: polygon(14px 0%, 100% 0%, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0% 100%, 0% 14px);
+    animation: scalePanelIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Control Terminal Header Banner Row */
+.settings-panel-header {
+    width: 100%;
+    height: 38px;
+    background: rgba(0, 207, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 207, 255, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.panel-header-text {
+    color: #00cfff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 6px rgba(0, 207, 255, 0.6);
+}
+
+.panel-close-x-btn {
+    background: transparent;
+    border: none;
+    color: #00cfff;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.15s ease;
+}
+
+.panel-close-x-btn:hover {
+    color: #ffffff;
+}
+
+/* Internal Config Content Shell Container */
+.settings-interior-layout {
+    width: 100%;
+    padding: 24px 36px 32px 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.settings-main-heading {
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.85rem;
+    font-weight: 500;
+    letter-spacing: 4px;
+    margin: 0 0 28px 0;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.options-matrix-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-bottom: 34px;
+}
+
+.option-control-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* ==========================================================================
+   CUSTOM ADVANCED SCI-FI CHECKBOX ELEMENT TRIMS
+   ========================================================================== */
+
+.cyber-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.05rem;
+    letter-spacing: 1.5px;
+    user-select: none;
+}
+
+.hidden-native-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Outer check square shell cell */
+.custom-cyber-square {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #00cfff;
+    background: rgba(0, 10, 35, 0.6);
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 0 6px rgba(0, 207, 255, 0.15);
+    transition: all 0.2s ease;
+}
+
+/* Glowing center target square node arriving on state checking activation */
+.custom-cyber-square::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 10px;
+    height: 10px;
+    background: #00cfff;
+    border-radius: 2px;
+    opacity: 0;
+    transform: scale(0.6);
+    box-shadow: 0 0 8px #00cfff;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.25), opacity 0.15s ease;
+}
+
+.checkbox-display-text {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+/* INTERACTIVE ACTIVE STATE CHECKBOX OVERRIDES */
+.cyber-checkbox-label:hover .custom-cyber-square {
+    border-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 207, 255, 0.4);
+}
+
+.hidden-native-checkbox:checked + .custom-cyber-square {
+    border-color: #00cfff;
+    background: rgba(0, 35, 75, 0.4);
+    box-shadow: 0 0 12px rgba(0, 207, 255, 0.5);
+}
+
+.hidden-native-checkbox:checked + .custom-cyber-square::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hidden-native-checkbox:checked ~ .checkbox-display-text {
+    color: #00cfff;
+    text-shadow: 0 0 6px rgba(0, 207, 255, 0.5);
+}
+
+/* ==========================================================================
+   VOLUME RANGE SLIDER CONFIGURATIONS
+   ========================================================================== */
+
+.volume-slider-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    transition: opacity 0.25s ease;
+}
+
+.volume-slider-row.row-disabled {
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+.volume-label-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    letter-spacing: 1px;
+}
+
+.volume-label-title { color: rgba(255, 255, 255, 0.5); }
+.volume-metric-readout { color: #00cfff; font-family: monospace; font-weight: bold; }
+
+.volume-slider-track-box {
+    position: relative;
+    width: 100%;
+    height: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.settings-volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: #0d162a;
+    outline: none;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Linear filled volume track rule mapping gradient widths via React property anchors */
+.settings-volume-slider::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: var(--vol-progress, 70%);
+    background: linear-gradient(90deg, #0088cc 0%, #00cfff 100%);
+    border-radius: 3px;
+    box-shadow: 0 0 8px rgba(0, 207, 255, 0.4);
+}
+
+.settings-volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid #00cfff;
+    position: relative;
+    z-index: 5;
+    box-shadow: 0 0 6px #00cfff;
+    transition: transform 0.1s ease;
+}
+
+.settings-volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* ==========================================================================
+   MODAL CONFIRM ACTION SAVE BUTTON
+   ========================================================================== */
+
+.settings-save-btn {
+    width: 200px;
+    height: 40px;
+    background: linear-gradient(180deg, rgba(0, 25, 60, 0.8) 0%, rgba(0, 8, 30, 0.9) 100%);
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+    clip-path: polygon(10px 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0% 100%, 0% 10px);
+}
+
+.settings-save-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: linear-gradient(to right, #00cfff, #0055aa, #00cfff);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    clip-path: polygon(10px 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0% 100%, 0% 10px);
+}
+
+.save-btn-text {
+    color: #00cfff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 6px rgba(0, 207, 255, 0.6);
+}
+
+.settings-save-btn:hover {
+    background: rgba(0, 30, 70, 0.5);
+    box-shadow: 0 0 15px rgba(0, 207, 255, 0.3);
+}
+
+.settings-save-btn:hover .save-btn-text {
+    color: #ffffff;
+    text-shadow: 0 0 8px #00cfff;
+}
+
+.settings-save-btn:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================================================
+   MODAL KEYFRAME INTERPOLATION TIMELINES
+   ========================================================================== */
+
+@keyframes fadeOverlayIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scalePanelIn { from { opacity: 0; transform: scale(0.94) translateY(15px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+
+/* ==========================================================================
+   EXPERIMENTAL AUDIO WARNING MODAL
+   ========================================================================== */
+.audio-warning-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 0, 5, 0.9);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    border-radius: inherit;
+}
+
+.audio-warning-panel {
+    width: 85%;
+    border: 2px solid #ff0055;
+    background: linear-gradient(135deg, rgba(40, 0, 10, 0.95), rgba(15, 0, 5, 0.98));
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255, 0, 85, 0.4), inset 0 0 15px rgba(255, 0, 85, 0.2);
+}
+
+.warning-title {
+    color: #ff0055;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    margin-top: 0;
+    text-shadow: 0 0 10px #ff0055;
+    letter-spacing: 2px;
+}
+
+.warning-text {
+    color: #ffa6c9;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.warning-btn-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.warning-btn {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-cancel {
+    background: transparent;
+    border: 2px solid #00cfff;
+    color: #00cfff;
+}
+
+.btn-cancel:hover {
+    background: rgba(0, 207, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 207, 255, 0.4);
+}
+
+.btn-confirm {
+    background: rgba(255, 0, 85, 0.1);
+    border: 2px solid #ff0055;
+    color: #ff0055;
+}
+
+.btn-confirm:hover {
+    background: #ff0055;
+    color: #ffffff;
+    box-shadow: 0 0 15px #ff0055;
+}

@@ -1,0 +1,94 @@
+/* ==========================================================================
+   GLOBAL VIEWPORT STANDALONE SEARCH POD HUD CORES
+   ========================================================================== */
+
+.search-target-hud-pod {
+    position: fixed;
+    /* Aligns perfectly below the right-hand side of your primary display panel border limits */
+    bottom: 35px;
+    right: 25px;
+    
+    width: 155px;
+    background: linear-gradient(135deg, rgba(0, 10, 32, 0.92) 0%, rgba(0, 4, 16, 0.96) 100%);
+    border: 1px solid rgba(0, 207, 255, 0.45);
+    padding: 10px 14px;
+    z-index: 998; /* Rides cleanly above background matrices layout systems */
+    overflow: hidden;
+    
+    /* Futuristic angular step-cut corner framing profile */
+    clip-path: polygon(12px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 12px);
+    
+    /* Top-tier arrival deployment animation matrix paths */
+    animation: hudPodGlobalArrival 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hud-pod-laser-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #00ffff;
+    box-shadow: 0 0 8px #00ffff;
+}
+
+.hud-pod-label {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    color: #00cfff;
+    font-size: 0.58rem;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    text-shadow: 0 0 5px rgba(0, 207, 255, 0.5);
+}
+
+.hud-pod-field-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(0, 207, 255, 0.15);
+    border-radius: 4px;
+    padding: 2px 8px;
+}
+
+.hud-pod-symbol {
+    color: #00ffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-shadow: 0 0 6px #00ffff;
+}
+
+.hud-pod-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+}
+
+.hud-pod-input::-webkit-outer-spin-button,
+.hud-pod-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.hud-pod-input:focus {
+    color: #00ffff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+@keyframes hudPodGlobalArrival {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}

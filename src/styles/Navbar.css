@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+* {
+    font-family: 'Orbitron', sans-serif;
+}
+
+.navbar {
+    width: 280px;
+    height: 100vh;
+    padding-top: 18px;
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-size: 58px;
+    font-weight: 800;
+    letter-spacing: -5px;
+    color: #b8f7ff;
+    line-height: 1;
+    text-shadow:
+        0 0 4px #67e8f9,
+        0 0 10px #67e8f9,
+        0 0 20px #22d3ee,
+        0 0 40px #9333ea;
+}
+
+.version {
+    font-size: 18px;
+    font-weight: 500;
+    color: #dbeafe;
+    margin-left: 8px;
+    position: relative;
+    top: -16px;
+    text-shadow:
+        0 0 6px rgba(255,255,255,0.4);
+}
+
+/* ==========================================================================
+   MENU LAYOUT & TRANSITION COUPLING
+   ========================================================================== */
+
+.menu-selection {
+    margin-top: 26px;
+    opacity: 1;
+    transform: translateY(0);
+    /* Handles smooth fade-out and slide-up transitions when state changes */
+    transition: 
+        opacity 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+        transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.menu-header {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    color: #f5f7ff;
+    margin-bottom: 18px;
+    cursor: pointer;
+    text-shadow:
+        0 0 4px rgba(103,232,249,0.4);
+    transition:
+        color 0.2s ease,
+        text-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.menu-header:hover {
+    color: #c6f7ff;
+    text-shadow:
+        0 0 6px #67e8f9,
+        0 0 12px #06b6d4,
+        0 0 24px #9333ea;
+    transform: translateX(4px);
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-left: 14px;
+}
+
+.menu-item {
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    color: #89aee6;
+    cursor: pointer;
+    text-shadow:
+        0 0 4px rgba(103,232,249,0.2);
+    transition:
+        color 0.2s ease,
+        text-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.menu-item:hover {
+    color: #c6f7ff;
+    text-shadow:
+        0 0 6px #67e8f9,
+        0 0 12px #06b6d4,
+        0 0 20px #9333ea;
+    transform: translateX(4px);
+}
+
+.active {
+    color: #c6f7ff;
+    text-shadow:
+        0 0 6px #67e8f9,
+        0 0 12px #06b6d4,
+        0 0 20px #9333ea;
+    transform: translateX(4px);
+}
+
+/* ==========================================================================
+   DYNAMIC COMPONENT INTERLOCK
+   ========================================================================== */
+
+/* When the stats tab is active, the global .Wrapper acquires the .expanded-stats-mode class.
+   This rule detects it anywhere on the page, smoothly hiding the algorithm list underneath the logo.
+*/
+body:has(.expanded-stats-mode) .menu-selection {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-15px); /* Sweeps up slightly behind the expanding stats window */
+}
